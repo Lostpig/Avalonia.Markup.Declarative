@@ -1,11 +1,12 @@
 using System.Diagnostics.CodeAnalysis;
 using Avalonia.Styling;
+using Mearii.Mvu;
 
 namespace MvuTemplate;
 
 //prevent from trimming [injected] services by native aot compilation
 [method: DynamicDependency(DynamicallyAccessedMemberTypes.PublicProperties, typeof(SimpleComponent))]
-public class SimpleComponent(SampleDataService dataService) : ComponentBase //constructor dependency injection sample
+public class SimpleComponent(SampleDataService dataService) : MvuComponent //constructor dependency injection sample
 {
     // You can also use Service injection into Property with DI container as follows:
     [Inject] public SampleDataService? DataService { get; set; }
@@ -55,7 +56,8 @@ public class SimpleComponent(SampleDataService dataService) : ComponentBase //co
                         new TextBlock()
                             .Text(() => $"Counter: {(Counter == 0 ? "zero" : Counter)}"), //expression binding with dynamic string result
                         new NumericUpDown()
-                            .Value(() => Counter, onChanged: v => Counter = v), //two-way binding sample
+                            .Value(() => Counter)
+                            .OnValueChanged(e => Counter = e.NewValue),
                         new Button()
                             .HorizontalAlignment(HorizontalAlignment.Center)
                             .Content("Click me")
@@ -66,18 +68,15 @@ public class SimpleComponent(SampleDataService dataService) : ComponentBase //co
     //Code
     private TextBlock _textBlock1 = null!;
 
-    private decimal? Counter { get; set; } = 0;
+    private Signal<decimal?> _counterSignal = CreateSignal<decimal?>(0);
+    private decimal? Counter
+    {
+        get => _counterSignal.Get(); 
+        set => _counterSignal.Set(value);
+    }
 
     private void OnButtonClick(RoutedEventArgs e)
     {
         _textBlock1.Text = dataService?.GetData() ?? "Data service is `null`";
-        StateHasChanged();
-    }
-
-    protected override void OnSizeChanged(SizeChangedEventArgs e)
-    {
-        //force recalculation on window width to check if it's Narrow state now
-        StateHasChanged();
-        base.OnSizeChanged(e);
     }
 }

@@ -1,6 +1,8 @@
-﻿namespace MvuTemplate;
+﻿using Mearii.Mvu;
 
-public class MainView : ComponentBase
+namespace MvuTemplate;
+
+public class MainView : MvuComponent
 {
     protected override object Build()
         => New<SimpleComponent>() // creates Child SimpleComponent and injects it's dependencies into constructor

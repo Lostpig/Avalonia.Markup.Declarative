@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net9.0;net8.0</TargetFrameworks>
+		<IsPackable>true</IsPackable>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+
+		<Authors>Avalonia Team</Authors>
+		<PackageProjectUrl>https://github.com/AvaloniaUI/Avalonia.Markup.Declarative</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/AvaloniaUI/Avalonia.Markup.Declarative</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<Description>The set of base classes and extension methods over Avalonia's controls to define views/markup with C# code instead of XAML.</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageTags>avalonia;avaloniaui;mvvm;mvp;csharpmarjup;android;ios;mac;forms;wpf;net;netstandard;net461;uwp;xamarin</PackageTags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<InternalsVisibleTo Include="Mearii.Mvu.Tests" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="icon.png" Pack="true" PackagePath="\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="System.Collections.Immutable" Version="9.0.0" />
+		<PackageReference Include="Avalonia" Version="11.3.0" />
+	</ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Mearii.Mvu.SourceGenerator\Mearii.Mvu.SourceGenerator.csproj" ReferenceOutputAssembly="true">
+            <PrivateAssets>all</PrivateAssets>
+        </ProjectReference>
+    </ItemGroup>
+
+	<ItemGroup>
+		<None Include="readme.txt" Pack="true" PackagePath="." />
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="\" />
+	</ItemGroup>
+    <ItemGroup>
+        <Folder Include="ControlExtensions.Generated\" />
+    </ItemGroup>
+</Project>

@@ -1,4 +1,5 @@
 ﻿using Avalonia.Controls.Templates;
+using Mearii.Mvu;
 
 public static class StaticResources
 {
@@ -6,7 +7,7 @@ public static class StaticResources
     {
         public static IControlTemplate MyControlTemplate { get; } = new FuncControlTemplate<MyCustomTemplatedControl>(
             // Using FuncView to generate ViewContext that will be used for binding
-            (control, scope) => new FuncView<MyCustomTemplatedControl>(control, c =>
+            (control, scope) => new FuncComponent(() =>
                 new Grid()
                     .Rows("Auto, Auto, *, Auto")
                     .Children(

@@ -1,0 +1,110 @@
+using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Controls.Templates;
+using Avalonia.Headless;
+using Avalonia.Platform;
+using Avalonia.Threading;
+using Avalonia.VisualTree;
+using Mearii.Mvu;
+using Mearii.Mvu.Helpers;
+
+namespace Mearii.Mvu.Tests.BindingTests;
+
+public class TemplateTestView : MvuComponent
+{
+    
+    public static IControlTemplate MyControlTemplate { get; } = new FuncControlTemplate<Button>(
+        (control, scope) =>
+        {
+            // using FuncView to generate ViewContext that will be used for binding
+            // not elegant, but works while we are looking for a better solution
+            // and supports different func template types
+            var _content = SignalHelpers.ControlPropertySignal(control, Button.ContentProperty);
+            var _contentText = new ComputedSignal<string>(() => $"{_content.Value}");
+
+            return new FuncComponent(() => new TextBox()
+                        .Text(_contentText, (v) => control.Content = v)
+            );
+        });
+
+    protected override object Build() =>
+        new Button()
+            .Content("Initial")
+            .Template(() => MyControlTemplate)
+            .Ref(out MyButton);
+
+    public Button MyButton = null!; // Using a field to check it's value in tests
+}
+
+public class TemplateBindingTests : AvaloniaTestBase
+{
+    [Fact]
+    public void TextBlock_Binding_RegistersComputedState()
+    {
+        var view = new TemplateTestView();
+
+        // Attach to visual tree to ensure template is applied
+        var window = new Window { Content = view };
+        window.Show();
+
+        // Process layout and rendering
+        Dispatcher.UIThread.RunJobs();
+
+        var button = view.MyButton;
+        Assert.NotNull(button); // Ensure button is created
+        var templateView = button.GetSelfAndVisualDescendants().OfType<FuncComponent>().FirstOrDefault();
+
+        Assert.NotNull(templateView); // Ensure template view is created
+
+        // Should have a computed state for the Text property
+        Assert.Contains(templateView._states, s =>
+            s is ReactiveState<TextBox, string> state &&
+            state.GetterFunc() == "Initial");
+    }
+
+    [Fact]
+    public void Changing_Button_Content_Updates_TextBox_Text()
+    {
+        var view = new TemplateTestView();
+        var window = new Window { Content = view };
+        window.Show();
+        Dispatcher.UIThread.RunJobs();
+
+        var button = view.MyButton;
+        Assert.NotNull(button);
+
+        // Find the TextBox inside the template
+        var textBox = button.GetSelfAndVisualDescendants().OfType<TextBox>().FirstOrDefault();
+        Assert.NotNull(textBox);
+
+        // Change Button.Content
+        button.Content = "Changed";
+        Dispatcher.UIThread.RunJobs();
+
+        // Assert TextBox.Text is updated
+        Assert.Equal("Changed", textBox.Text);
+    }
+
+    [Fact]
+    public void Changing_TextBox_Text_Updates_Button_Content()
+    {
+        var view = new TemplateTestView();
+        var window = new Window { Content = view };
+        window.Show();
+        Dispatcher.UIThread.RunJobs();
+
+        var button = view.MyButton;
+        Assert.NotNull(button);
+
+        // Find the TextBox inside the template
+        var textBox = button.GetSelfAndVisualDescendants().OfType<TextBox>().FirstOrDefault();
+        Assert.NotNull(textBox);
+
+        // Change TextBox.Text
+        textBox.Text = "FromTextBox";
+        Dispatcher.UIThread.RunJobs();
+
+        // Assert Button.Content is updated
+        Assert.Equal("FromTextBox", button.Content);
+    }
+}

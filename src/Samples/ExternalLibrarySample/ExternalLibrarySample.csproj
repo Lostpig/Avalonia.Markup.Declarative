@@ -34,10 +34,8 @@
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.5" />
 		<PackageReference Include="Semi.Avalonia" Version="11.2.1.8" />
 	</ItemGroup>
-
 	<ItemGroup>
-		<ProjectReference Include="..\..\Avalonia.Markup.Declarative\Avalonia.Markup.Declarative.csproj" />
-		<ProjectReference Include="..\..\Avalonia.Markup.Declarative.SourceGenerator\Avalonia.Markup.Declarative.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+	  <ProjectReference Include="..\..\Mearii.Mvu\Mearii.Mvu.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

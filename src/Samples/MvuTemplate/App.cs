@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using MvuTemplate;
 using System.Diagnostics.CodeAnalysis;
+using Mearii.Mvu;
 
 var services = new ServiceCollection();
 services.AddSingleton<SampleDataService>();

@@ -30,8 +30,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\Avalonia.Markup.Declarative\Avalonia.Markup.Declarative.csproj" />
-		<ProjectReference Include="..\..\Avalonia.Markup.Declarative.SourceGenerator\Avalonia.Markup.Declarative.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<ProjectReference Include="..\..\Mearii.Mvu.SourceGenerator\Mearii.Mvu.SourceGenerator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<ProjectReference Include="..\..\Mearii.Mvu\Mearii.Mvu.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
