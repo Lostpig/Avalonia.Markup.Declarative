@@ -18,7 +18,7 @@ public static class StaticResources
                                 new TextBlock().Text("Enter text:")
                                     .VerticalAlignment(VerticalAlignment.Center),
                                 new TextBox()
-                                    .Text(() => c.NewValue ?? "", v => c.NewValue = v)
+                                    .Text(() => control.NewValue ?? "", v => control.NewValue = v)
                                     .MinWidth(150)
                             ),
                         new StackPanel().Row(1)
@@ -30,7 +30,7 @@ public static class StaticResources
                                 new TextBlock().Text("Saved text:")
                                     .VerticalAlignment(VerticalAlignment.Center),
                                 new TextBox()
-                                    .Text(() => c.SavedValue ?? "", v => c.SavedValue = v)
+                                    .Text(() => control.SavedValue ?? "", v => control.SavedValue = v)
                                     .MinWidth(150)
                             ),
                         new StackPanel().Row(3)
@@ -39,12 +39,12 @@ public static class StaticResources
                             .Children(
                                 new Button().Content("Cancel")
                                     .Margin(5, 0)
-                                    .IsEnabled(() => c.CanSave)
-                                    .OnClick(_ => c.Cancel()),
+                                    .IsEnabled(() => control.CanSave)
+                                    .OnClick(_ => control.Cancel()),
                                 new Button().Content("Save")
                                     .Margin(5, 0)
-                                    .IsEnabled(() => c.CanSave)
-                                    .OnClick(_ => c.Save())
+                                    .IsEnabled(() => control.CanSave)
+                                    .OnClick(_ => control.Save())
                             )
                     ))
             );
@@ -52,7 +52,7 @@ public static class StaticResources
         public static IControlTemplate MyAnotherControlTemplate { get; } =
             new FuncControlTemplate<MyCustomTemplatedControl>((control, scope) =>
                 // Using FuncView to generate ViewContext that will be used for binding
-                new FuncView<MyCustomTemplatedControl>(control, c =>
+                new FuncComponent(() =>
                     new StackPanel()
                         .Children(
                             new StackPanel()
@@ -60,7 +60,7 @@ public static class StaticResources
                                 .VerticalAlignment(VerticalAlignment.Center)
                                 .Children(
                                     new TextBlock()
-                                        .Text(() => $"Entered text: {c.NewValue}")
+                                        .Text(() => $"Entered text: {control.NewValue}")
                                         .MinWidth(150)
                                 ),
                             new StackPanel()
@@ -70,7 +70,7 @@ public static class StaticResources
                                 .HorizontalAlignment(HorizontalAlignment.Left)
                                 .Children(
                                     new TextBlock()
-                                        .Text(() => $"Saved text: {c.SavedValue}")
+                                        .Text(() => $"Saved text: {control.SavedValue}")
                                         .MinWidth(150)
                                 )
                         ))

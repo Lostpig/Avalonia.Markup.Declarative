@@ -309,6 +309,10 @@ public static T Popup_TakesFocusFromNativeControl<T>(this T control, Func<System
 public static T Popup_TakesFocusFromNativeControl<T>(this T control, ISignal<System.Boolean> signal, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.Primitives.Popup.TakesFocusFromNativeControlProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T Popup_TakesFocusFromNativeControl<T>(this T control, System.Boolean value, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.Primitives.Popup.TakesFocusFromNativeControlProperty!, onChanged);
+
 
 
 //================= Events ======================//

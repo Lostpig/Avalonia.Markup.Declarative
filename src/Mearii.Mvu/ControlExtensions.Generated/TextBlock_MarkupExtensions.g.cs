@@ -333,6 +333,10 @@ public static T TextBlock_BaselineOffset<T>(this T control, Func<System.Double> 
 public static T TextBlock_BaselineOffset<T>(this T control, ISignal<System.Double> signal, Action<System.Double>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.TextBlock.BaselineOffsetProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T TextBlock_BaselineOffset<T>(this T control, System.Double value, Action<System.Double>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.TextBlock.BaselineOffsetProperty!, onChanged);
+
 
  // LineHeight
 
@@ -343,6 +347,10 @@ public static T TextBlock_LineHeight<T>(this T control, Func<System.Double> func
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T TextBlock_LineHeight<T>(this T control, ISignal<System.Double> signal, Action<System.Double>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.TextBlock.LineHeightProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T TextBlock_LineHeight<T>(this T control, System.Double value, Action<System.Double>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.TextBlock.LineHeightProperty!, onChanged);
 
 
  // LetterSpacing
@@ -355,6 +363,10 @@ public static T TextBlock_LetterSpacing<T>(this T control, Func<System.Double> f
 public static T TextBlock_LetterSpacing<T>(this T control, ISignal<System.Double> signal, Action<System.Double>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.TextBlock.LetterSpacingProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T TextBlock_LetterSpacing<T>(this T control, System.Double value, Action<System.Double>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.TextBlock.LetterSpacingProperty!, onChanged);
+
 
  // MaxLines
 
@@ -365,6 +377,10 @@ public static T TextBlock_MaxLines<T>(this T control, Func<System.Int32> func, A
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T TextBlock_MaxLines<T>(this T control, ISignal<System.Int32> signal, Action<System.Int32>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.TextBlock.MaxLinesProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T TextBlock_MaxLines<T>(this T control, System.Int32 value, Action<System.Int32>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.TextBlock.MaxLinesProperty!, onChanged);
 
 
  // TextAlignment
@@ -377,6 +393,10 @@ public static T TextBlock_TextAlignment<T>(this T control, Func<Avalonia.Media.T
 public static T TextBlock_TextAlignment<T>(this T control, ISignal<Avalonia.Media.TextAlignment> signal, Action<Avalonia.Media.TextAlignment>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.TextBlock.TextAlignmentProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T TextBlock_TextAlignment<T>(this T control, Avalonia.Media.TextAlignment value, Action<Avalonia.Media.TextAlignment>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.TextBlock.TextAlignmentProperty!, onChanged);
+
 
  // TextWrapping
 
@@ -388,6 +408,10 @@ public static T TextBlock_TextWrapping<T>(this T control, Func<Avalonia.Media.Te
 public static T TextBlock_TextWrapping<T>(this T control, ISignal<Avalonia.Media.TextWrapping> signal, Action<Avalonia.Media.TextWrapping>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.TextBlock.TextWrappingProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T TextBlock_TextWrapping<T>(this T control, Avalonia.Media.TextWrapping value, Action<Avalonia.Media.TextWrapping>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.TextBlock.TextWrappingProperty!, onChanged);
+
 
  // TextTrimming
 
@@ -398,6 +422,10 @@ public static T TextBlock_TextTrimming<T>(this T control, Func<Avalonia.Media.Te
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T TextBlock_TextTrimming<T>(this T control, ISignal<Avalonia.Media.TextTrimming> signal, Action<Avalonia.Media.TextTrimming>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.TextBlock.TextTrimmingProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T TextBlock_TextTrimming<T>(this T control, Avalonia.Media.TextTrimming value, Action<Avalonia.Media.TextTrimming>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.TextBlock.TextTrimmingProperty!, onChanged);
 
 
 

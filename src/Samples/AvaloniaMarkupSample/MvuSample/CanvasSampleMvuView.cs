@@ -1,8 +1,9 @@
 ﻿using Avalonia.Controls.Shapes;
+using Mearii.Mvu;
 
 namespace AvaloniaMarkupSample.MvuSample;
 
-public class CanvasSampleMvuView : ComponentBase
+public class CanvasSampleMvuView : MvuComponent
 {
     protected override object Build() =>
         new Grid().Rows("30, 40, *")

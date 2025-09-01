@@ -181,6 +181,10 @@ public static T Visual_FlowDirection<T>(this T control, Func<Avalonia.Media.Flow
 public static T Visual_FlowDirection<T>(this T control, ISignal<Avalonia.Media.FlowDirection> signal, Action<Avalonia.Media.FlowDirection>? onChanged = null) where T : Avalonia.Visual 
    => control._set(signal, Avalonia.Visual.FlowDirectionProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T Visual_FlowDirection<T>(this T control, Avalonia.Media.FlowDirection value, Action<Avalonia.Media.FlowDirection>? onChanged = null) where T : Avalonia.Visual 
+   => control._set(() => value, Avalonia.Visual.FlowDirectionProperty!, onChanged);
+
 
 
 //================= Events ======================//

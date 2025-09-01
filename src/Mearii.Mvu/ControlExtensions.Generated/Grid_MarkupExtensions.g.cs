@@ -69,6 +69,10 @@ public static T Grid_Column<T>(this T control, Func<System.Int32> func, Action<S
 public static T Grid_Column<T>(this T control, ISignal<System.Int32> signal, Action<System.Int32>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.Grid.ColumnProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T Grid_Column<T>(this T control, System.Int32 value, Action<System.Int32>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.Grid.ColumnProperty!, onChanged);
+
 
  // Row
 
@@ -79,6 +83,10 @@ public static T Grid_Row<T>(this T control, Func<System.Int32> func, Action<Syst
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T Grid_Row<T>(this T control, ISignal<System.Int32> signal, Action<System.Int32>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.Grid.RowProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T Grid_Row<T>(this T control, System.Int32 value, Action<System.Int32>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.Grid.RowProperty!, onChanged);
 
 
  // ColumnSpan
@@ -91,6 +99,10 @@ public static T Grid_ColumnSpan<T>(this T control, Func<System.Int32> func, Acti
 public static T Grid_ColumnSpan<T>(this T control, ISignal<System.Int32> signal, Action<System.Int32>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.Grid.ColumnSpanProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T Grid_ColumnSpan<T>(this T control, System.Int32 value, Action<System.Int32>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.Grid.ColumnSpanProperty!, onChanged);
+
 
  // RowSpan
 
@@ -102,6 +114,10 @@ public static T Grid_RowSpan<T>(this T control, Func<System.Int32> func, Action<
 public static T Grid_RowSpan<T>(this T control, ISignal<System.Int32> signal, Action<System.Int32>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.Grid.RowSpanProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T Grid_RowSpan<T>(this T control, System.Int32 value, Action<System.Int32>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.Grid.RowSpanProperty!, onChanged);
+
 
  // IsSharedSizeScope
 
@@ -112,6 +128,10 @@ public static T Grid_IsSharedSizeScope<T>(this T control, Func<System.Boolean> f
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T Grid_IsSharedSizeScope<T>(this T control, ISignal<System.Boolean> signal, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.Grid.IsSharedSizeScopeProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T Grid_IsSharedSizeScope<T>(this T control, System.Boolean value, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.Grid.IsSharedSizeScopeProperty!, onChanged);
 
 
 

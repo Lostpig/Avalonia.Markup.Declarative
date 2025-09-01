@@ -68,7 +68,7 @@ public class SimpleComponent(SampleDataService dataService) : MvuComponent //con
     //Code
     private TextBlock _textBlock1 = null!;
 
-    private Signal<decimal?> _counterSignal = CreateSignal<decimal?>(0);
+    private Signal<decimal?> _counterSignal = new(0);
     private decimal? Counter
     {
         get => _counterSignal.Get(); 

@@ -114,6 +114,10 @@ public static T TrayIcon_Icons<T>(this T control, Func<Avalonia.Controls.TrayIco
 public static T TrayIcon_Icons<T>(this T control, ISignal<Avalonia.Controls.TrayIcons> signal, Action<Avalonia.Controls.TrayIcons>? onChanged = null) where T : Avalonia.Application 
    => control._set(signal, Avalonia.Controls.TrayIcon.IconsProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T TrayIcon_Icons<T>(this T control, Avalonia.Controls.TrayIcons value, Action<Avalonia.Controls.TrayIcons>? onChanged = null) where T : Avalonia.Application 
+   => control._set(() => value, Avalonia.Controls.TrayIcon.IconsProperty!, onChanged);
+
 
 
 //================= Events ======================//

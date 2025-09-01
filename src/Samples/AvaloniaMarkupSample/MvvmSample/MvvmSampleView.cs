@@ -1,8 +1,11 @@
-﻿namespace AvaloniaMarkupSample.MvvmSample;
+﻿using Mearii.Mvu;
 
-public class MvvmSampleView() : ViewBase<MvvmSampleViewModel>(new MvvmSampleViewModel())
+namespace AvaloniaMarkupSample.MvvmSample;
+
+public class MvvmSampleView : MvuComponent
 {
-    protected override object Build(MvvmSampleViewModel? vm) =>
+    MvvmSampleViewModel vm = new();
+    protected override object Build() =>
         new StackPanel()
             .Children(
                 new TextBlock()
@@ -10,10 +13,6 @@ public class MvvmSampleView() : ViewBase<MvvmSampleViewModel>(new MvvmSampleView
 
                 new Button()
                     .Content("Execute Command")
-                    .Command(new Binding(nameof(vm.MyCommand))) //it demonstrates build in Avalonia Command binding to method mechanism, when you don't need to have ICommand object and pass method name directly
-                    .CommandParameter(new Binding { Source = vm })
-                    //but with Avalonia.Markup.Declarative you can just call
-                    //.OnClick(args => vm.MyCommand(vm))
-
+                    .OnClick(args => vm.MyCommand(vm))
             );
 }

@@ -68,7 +68,8 @@ public class GeneratorHost(ExtensionGeneratorConfig config)
                     .Select(x => new AttachedPropertyExtensionInfo(x)),
                 
                 new AttachedPropertyBindFromFuncSetterGenerator(),
-                new AttachedPropertyBindFromSignalSetterGenerator()
+                new AttachedPropertyBindFromSignalSetterGenerator(),
+                new AttachedPropertyMagicalSetterGenerator()
             ),
 
             new("Events", 

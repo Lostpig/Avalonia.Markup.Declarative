@@ -26,14 +26,14 @@ public static class ControlPropertyExtensions
         where TControl : AvaloniaObject
     {
         var component = ComponentBuildContext.CurrentComponent ?? throw new InvalidOperationException("Current component is not set! ");
-        var state = new ReactiveState<TControl, TValue>(control, getter, setter, changeHandler);
+        var state = new ViewSignalComputedState<TControl, TValue>(control, getter, setter, changeHandler);
         return control;
     }
     public static TControl _set<TControl, TValue>(this TControl control, Func<TValue> getter, AvaloniaProperty<TValue> avaloniaProperty, Action<TValue>? changeHandler = null)
         where TControl : AvaloniaObject
     {
         var component = ComponentBuildContext.CurrentComponent ?? throw new InvalidOperationException("Current component is not set! ");
-        var state = new ReactiveState<TControl, TValue>(control, getter, avaloniaProperty, changeHandler);
+        var state = new ViewSignalComputedState<TControl, TValue>(control, getter, avaloniaProperty, changeHandler);
         component.AddState(state);
 
         return control;
@@ -42,7 +42,7 @@ public static class ControlPropertyExtensions
         where TControl : AvaloniaObject
     {
         var component = ComponentBuildContext.CurrentComponent ?? throw new InvalidOperationException("Current component is not set! ");
-        var state = new ReactiveState<TControl, TValue>(control, signal, avaloniaProperty, changeHandler);
+        var state = new ViewSignalComputedState<TControl, TValue>(control, signal, avaloniaProperty, changeHandler);
         component.AddState(state);
 
         return control;
@@ -51,7 +51,7 @@ public static class ControlPropertyExtensions
     where TControl : AvaloniaObject
     {
         var component = ComponentBuildContext.CurrentComponent ?? throw new InvalidOperationException("Current component is not set! ");
-        var state = new ReactiveState<TControl, TValue>(control, signal, setter, changeHandler);
+        var state = new ViewSignalComputedState<TControl, TValue>(control, signal, setter, changeHandler);
         component.AddState(state);
 
         return control;
@@ -288,7 +288,7 @@ public static class ControlPropertyExtensions
         if (component == null)
             throw new InvalidOperationException("Current component is not set");
 
-        var state = new ReactiveState<TElement, bool>(control, signal, (c, v) => c.Classes.Set(className, v), null);
+        var state = new ViewSignalComputedState<TElement, bool>(control, signal, (c, v) => c.Classes.Set(className, v), null);
         component.AddState(state);
 
         return control;

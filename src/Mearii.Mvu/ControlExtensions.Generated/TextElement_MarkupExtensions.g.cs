@@ -144,6 +144,10 @@ public static T TextElement_FontFamily<T>(this T control, Func<Avalonia.Media.Fo
 public static T TextElement_FontFamily<T>(this T control, ISignal<Avalonia.Media.FontFamily> signal, Action<Avalonia.Media.FontFamily>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.Documents.TextElement.FontFamilyProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T TextElement_FontFamily<T>(this T control, Avalonia.Media.FontFamily value, Action<Avalonia.Media.FontFamily>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.Documents.TextElement.FontFamilyProperty!, onChanged);
+
 
  // FontFeatures
 
@@ -154,6 +158,10 @@ public static T TextElement_FontFeatures<T>(this T control, Func<Avalonia.Media.
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T TextElement_FontFeatures<T>(this T control, ISignal<Avalonia.Media.FontFeatureCollection> signal, Action<Avalonia.Media.FontFeatureCollection>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.Documents.TextElement.FontFeaturesProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T TextElement_FontFeatures<T>(this T control, Avalonia.Media.FontFeatureCollection value, Action<Avalonia.Media.FontFeatureCollection>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.Documents.TextElement.FontFeaturesProperty!, onChanged);
 
 
  // FontSize
@@ -166,6 +174,10 @@ public static T TextElement_FontSize<T>(this T control, Func<System.Double> func
 public static T TextElement_FontSize<T>(this T control, ISignal<System.Double> signal, Action<System.Double>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.Documents.TextElement.FontSizeProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T TextElement_FontSize<T>(this T control, System.Double value, Action<System.Double>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.Documents.TextElement.FontSizeProperty!, onChanged);
+
 
  // FontStyle
 
@@ -176,6 +188,10 @@ public static T TextElement_FontStyle<T>(this T control, Func<Avalonia.Media.Fon
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T TextElement_FontStyle<T>(this T control, ISignal<Avalonia.Media.FontStyle> signal, Action<Avalonia.Media.FontStyle>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.Documents.TextElement.FontStyleProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T TextElement_FontStyle<T>(this T control, Avalonia.Media.FontStyle value, Action<Avalonia.Media.FontStyle>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.Documents.TextElement.FontStyleProperty!, onChanged);
 
 
  // FontWeight
@@ -188,6 +204,10 @@ public static T TextElement_FontWeight<T>(this T control, Func<Avalonia.Media.Fo
 public static T TextElement_FontWeight<T>(this T control, ISignal<Avalonia.Media.FontWeight> signal, Action<Avalonia.Media.FontWeight>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.Documents.TextElement.FontWeightProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T TextElement_FontWeight<T>(this T control, Avalonia.Media.FontWeight value, Action<Avalonia.Media.FontWeight>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.Documents.TextElement.FontWeightProperty!, onChanged);
+
 
  // FontStretch
 
@@ -199,6 +219,10 @@ public static T TextElement_FontStretch<T>(this T control, Func<Avalonia.Media.F
 public static T TextElement_FontStretch<T>(this T control, ISignal<Avalonia.Media.FontStretch> signal, Action<Avalonia.Media.FontStretch>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.Documents.TextElement.FontStretchProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T TextElement_FontStretch<T>(this T control, Avalonia.Media.FontStretch value, Action<Avalonia.Media.FontStretch>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.Documents.TextElement.FontStretchProperty!, onChanged);
+
 
  // Foreground
 
@@ -209,6 +233,10 @@ public static T TextElement_Foreground<T>(this T control, Func<Avalonia.Media.IB
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T TextElement_Foreground<T>(this T control, ISignal<Avalonia.Media.IBrush> signal, Action<Avalonia.Media.IBrush>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.Documents.TextElement.ForegroundProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T TextElement_Foreground<T>(this T control, Avalonia.Media.IBrush value, Action<Avalonia.Media.IBrush>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.Documents.TextElement.ForegroundProperty!, onChanged);
 
 
 

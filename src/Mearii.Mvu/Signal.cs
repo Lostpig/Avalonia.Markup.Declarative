@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Mearii.Mvu;
+using EffectAction = Action<Action<Action>, Action>;
 
 public class Signal<T> : Signal, ISignal<T>
 {
@@ -40,6 +40,7 @@ public class Signal<T> : Signal, ISignal<T>
         var newValue = updateFunc(_value);
         Set(newValue);
     }
+    // public ComputedSignal<OutT> Computed<OutT>(Func<T, OutT> computeFunc) { }
 }
 
 public class CollectionSignal<T> : Signal, ISignal<ICollection<T>>
@@ -115,6 +116,13 @@ public class ComputedSignal<T> : Signal, ISignal<T>
         _computeFunc = computeFunc;
         _cache = initValue;
     }
+    internal ComputedSignal(Signal dependency, Func<T> computeFunc)
+    {
+        _computeFunc = computeFunc;
+        _cache = _computeFunc();
+        IniializeDependencies([dependency]);
+    }
+
     protected void IniializeDependencies(ICollection<Signal> dependencies)
     {
         foreach (var signal in dependencies)
@@ -159,7 +167,7 @@ public class Signal : IValueChanged
     {
         foreach (var handler in _handlers)
         {
-            handler();
+            handler.Invoke();
         }
     }
 
@@ -182,16 +190,16 @@ public class Effect : IDisposable
 {
     protected bool _running = false;
     protected readonly List<IDisposable> _subscriptions = [];
-    protected Action _effectAction;
+    protected EffectAction _effectAction;
     public event Action? CleanUp;
-    public Effect(Action effectAction)
+    public Effect(EffectAction effectAction)
     {
         _effectAction = effectAction;
         Excute(Initialize);
     }
     protected void Initialize()
     {
-        var dependencies = SignalTraceContext.TraceDependencies(_effectAction);
+        var dependencies = SignalTraceContext.TraceDependencies(ExcuteEffect);
         IniializeDependencies(dependencies);
     }
     protected void ExcuteEffect()
@@ -199,7 +207,18 @@ public class Effect : IDisposable
         Excute(() =>
         {
             CleanUp?.Invoke();
-            _effectAction();
+            CleanUp = null;
+
+            void setCleanUp(Action newCleanUp)
+            {
+                CleanUp = newCleanUp;
+            }
+            void destroy()
+            {
+                Dispose();
+            }
+
+            _effectAction(setCleanUp, destroy);
         });
     }
     protected async void Excute(Action action)
@@ -248,4 +267,9 @@ public interface ISignal<T>
     T Value { get; }
     T Get();
     T UnTrackedValue();
+
+    ComputedSignal<OutT> Computed<OutT>(Func<T, OutT> computeFunc)
+    {
+        return new ComputedSignal<OutT>(() => computeFunc(Value));
+    }
 }

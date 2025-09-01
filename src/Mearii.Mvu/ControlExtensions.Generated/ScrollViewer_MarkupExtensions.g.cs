@@ -204,6 +204,10 @@ public static T ScrollViewer_BringIntoViewOnFocusChange<T>(this T control, Func<
 public static T ScrollViewer_BringIntoViewOnFocusChange<T>(this T control, ISignal<System.Boolean> signal, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.ScrollViewer.BringIntoViewOnFocusChangeProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T ScrollViewer_BringIntoViewOnFocusChange<T>(this T control, System.Boolean value, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.ScrollViewer.BringIntoViewOnFocusChangeProperty!, onChanged);
+
 
  // HorizontalScrollBarVisibility
 
@@ -214,6 +218,10 @@ public static T ScrollViewer_HorizontalScrollBarVisibility<T>(this T control, Fu
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T ScrollViewer_HorizontalScrollBarVisibility<T>(this T control, ISignal<Avalonia.Controls.Primitives.ScrollBarVisibility> signal, Action<Avalonia.Controls.Primitives.ScrollBarVisibility>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.ScrollViewer.HorizontalScrollBarVisibilityProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T ScrollViewer_HorizontalScrollBarVisibility<T>(this T control, Avalonia.Controls.Primitives.ScrollBarVisibility value, Action<Avalonia.Controls.Primitives.ScrollBarVisibility>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.ScrollViewer.HorizontalScrollBarVisibilityProperty!, onChanged);
 
 
  // HorizontalSnapPointsType
@@ -226,6 +234,10 @@ public static T ScrollViewer_HorizontalSnapPointsType<T>(this T control, Func<Av
 public static T ScrollViewer_HorizontalSnapPointsType<T>(this T control, ISignal<Avalonia.Controls.Primitives.SnapPointsType> signal, Action<Avalonia.Controls.Primitives.SnapPointsType>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.ScrollViewer.HorizontalSnapPointsTypeProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T ScrollViewer_HorizontalSnapPointsType<T>(this T control, Avalonia.Controls.Primitives.SnapPointsType value, Action<Avalonia.Controls.Primitives.SnapPointsType>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.ScrollViewer.HorizontalSnapPointsTypeProperty!, onChanged);
+
 
  // VerticalSnapPointsType
 
@@ -236,6 +248,10 @@ public static T ScrollViewer_VerticalSnapPointsType<T>(this T control, Func<Aval
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T ScrollViewer_VerticalSnapPointsType<T>(this T control, ISignal<Avalonia.Controls.Primitives.SnapPointsType> signal, Action<Avalonia.Controls.Primitives.SnapPointsType>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.ScrollViewer.VerticalSnapPointsTypeProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T ScrollViewer_VerticalSnapPointsType<T>(this T control, Avalonia.Controls.Primitives.SnapPointsType value, Action<Avalonia.Controls.Primitives.SnapPointsType>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.ScrollViewer.VerticalSnapPointsTypeProperty!, onChanged);
 
 
  // HorizontalSnapPointsAlignment
@@ -248,6 +264,10 @@ public static T ScrollViewer_HorizontalSnapPointsAlignment<T>(this T control, Fu
 public static T ScrollViewer_HorizontalSnapPointsAlignment<T>(this T control, ISignal<Avalonia.Controls.Primitives.SnapPointsAlignment> signal, Action<Avalonia.Controls.Primitives.SnapPointsAlignment>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.ScrollViewer.HorizontalSnapPointsAlignmentProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T ScrollViewer_HorizontalSnapPointsAlignment<T>(this T control, Avalonia.Controls.Primitives.SnapPointsAlignment value, Action<Avalonia.Controls.Primitives.SnapPointsAlignment>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.ScrollViewer.HorizontalSnapPointsAlignmentProperty!, onChanged);
+
 
  // VerticalSnapPointsAlignment
 
@@ -258,6 +278,10 @@ public static T ScrollViewer_VerticalSnapPointsAlignment<T>(this T control, Func
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T ScrollViewer_VerticalSnapPointsAlignment<T>(this T control, ISignal<Avalonia.Controls.Primitives.SnapPointsAlignment> signal, Action<Avalonia.Controls.Primitives.SnapPointsAlignment>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.ScrollViewer.VerticalSnapPointsAlignmentProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T ScrollViewer_VerticalSnapPointsAlignment<T>(this T control, Avalonia.Controls.Primitives.SnapPointsAlignment value, Action<Avalonia.Controls.Primitives.SnapPointsAlignment>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.ScrollViewer.VerticalSnapPointsAlignmentProperty!, onChanged);
 
 
  // VerticalScrollBarVisibility
@@ -270,6 +294,10 @@ public static T ScrollViewer_VerticalScrollBarVisibility<T>(this T control, Func
 public static T ScrollViewer_VerticalScrollBarVisibility<T>(this T control, ISignal<Avalonia.Controls.Primitives.ScrollBarVisibility> signal, Action<Avalonia.Controls.Primitives.ScrollBarVisibility>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.ScrollViewer.VerticalScrollBarVisibilityProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T ScrollViewer_VerticalScrollBarVisibility<T>(this T control, Avalonia.Controls.Primitives.ScrollBarVisibility value, Action<Avalonia.Controls.Primitives.ScrollBarVisibility>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.ScrollViewer.VerticalScrollBarVisibilityProperty!, onChanged);
+
 
  // AllowAutoHide
 
@@ -280,6 +308,10 @@ public static T ScrollViewer_AllowAutoHide<T>(this T control, Func<System.Boolea
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T ScrollViewer_AllowAutoHide<T>(this T control, ISignal<System.Boolean> signal, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.ScrollViewer.AllowAutoHideProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T ScrollViewer_AllowAutoHide<T>(this T control, System.Boolean value, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.ScrollViewer.AllowAutoHideProperty!, onChanged);
 
 
  // IsScrollChainingEnabled
@@ -292,6 +324,10 @@ public static T ScrollViewer_IsScrollChainingEnabled<T>(this T control, Func<Sys
 public static T ScrollViewer_IsScrollChainingEnabled<T>(this T control, ISignal<System.Boolean> signal, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.ScrollViewer.IsScrollChainingEnabledProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T ScrollViewer_IsScrollChainingEnabled<T>(this T control, System.Boolean value, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.ScrollViewer.IsScrollChainingEnabledProperty!, onChanged);
+
 
  // IsScrollInertiaEnabled
 
@@ -303,6 +339,10 @@ public static T ScrollViewer_IsScrollInertiaEnabled<T>(this T control, Func<Syst
 public static T ScrollViewer_IsScrollInertiaEnabled<T>(this T control, ISignal<System.Boolean> signal, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.ScrollViewer.IsScrollInertiaEnabledProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T ScrollViewer_IsScrollInertiaEnabled<T>(this T control, System.Boolean value, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.ScrollViewer.IsScrollInertiaEnabledProperty!, onChanged);
+
 
  // IsDeferredScrollingEnabled
 
@@ -313,6 +353,10 @@ public static T ScrollViewer_IsDeferredScrollingEnabled<T>(this T control, Func<
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T ScrollViewer_IsDeferredScrollingEnabled<T>(this T control, ISignal<System.Boolean> signal, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.ScrollViewer.IsDeferredScrollingEnabledProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T ScrollViewer_IsDeferredScrollingEnabled<T>(this T control, System.Boolean value, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.ScrollViewer.IsDeferredScrollingEnabledProperty!, onChanged);
 
 
 

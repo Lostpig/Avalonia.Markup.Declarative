@@ -47,8 +47,8 @@ public class ViewBaseBindingTests : AvaloniaTestBase
 
 
             // Should have a computed state for the Text property
-            Assert.Contains(view._states, s =>
-                s is ReactiveState<TextBlock, string> state &&
+            Assert.Contains(view._signalStates, s =>
+                s is ViewSignalComputedState<TextBlock, string> state &&
                 state.GetterFunc() == "Initial");
 
             Assert.Equal("Initial", view.MyTextBlock.Text);

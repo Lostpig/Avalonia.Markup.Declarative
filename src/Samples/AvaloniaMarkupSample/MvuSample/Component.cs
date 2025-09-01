@@ -1,6 +1,8 @@
-﻿namespace AvaloniaMarkupSample.MvuSample;
+﻿using Mearii.Mvu;
 
-public class Component : ComponentBase
+namespace AvaloniaMarkupSample.MvuSample;
+
+public class Component : MvuComponent
 {
     protected override object Build() =>
         new StackPanel()
@@ -17,7 +19,6 @@ public class Component : ComponentBase
                     {
                         InnerContent = "Button clicked!";
                         ButtonClicked?.Invoke();
-                        StateHasChanged();
                     })
 
             );
@@ -26,5 +27,11 @@ public class Component : ComponentBase
     public event EventHandler? Button1Clicked;
     public event EventHandler<bool>? Button2Clicked;
     public event Action<int>? Button3Clicked;
-    public string InnerContent { get; set; } = "Parameter value";
+
+    private readonly Signal<string> _innerContent = new ("Parameter value");
+    public string InnerContent 
+    { 
+        get => _innerContent.Get(); 
+        set => _innerContent.Set(value); 
+    } 
 }

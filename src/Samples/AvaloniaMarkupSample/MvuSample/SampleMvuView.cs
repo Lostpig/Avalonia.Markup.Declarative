@@ -1,9 +1,10 @@
 ﻿using Avalonia.Controls.Primitives;
 using Avalonia.Styling;
+using Mearii.Mvu;
 
 namespace AvaloniaMarkupSample.MvuSample;
 
-public class SampleMvuView : ComponentBase
+public class SampleMvuView : MvuComponent
 {
     protected override StyleGroup BuildStyles() =>
     [
@@ -33,7 +34,7 @@ public class SampleMvuView : ComponentBase
                             .Text("NamedTextBlock"),
 
                         new TextBlock()
-                            .Text(() => MyProperty),
+                            .Text(() => MyProperty.Value),
 
                         new TextBlock()
                             .Text(() => State.StateProperty),
@@ -47,15 +48,14 @@ public class SampleMvuView : ComponentBase
                             .OnClick(OnButton2Click),
 
                         new Border()
-                            .BorderBrush(() => BorderColor)
+                            .BorderBrush(() => BorderColor.Value)
                             .BorderThickness(3)
                             .Child(
                                 new Component()
-                                    .InnerContent(() => MvuComponentParam)
+                                    .InnerContent(() => MvuComponentParam.Value)
                                     .OnButtonClicked(() =>
                                     {
-                                        BorderColor = Colors.Yellow.ToBrush();
-                                        StateHasChanged();
+                                        BorderColor.Set(Colors.Yellow.ToBrush());
                                     })
                             ),
 
@@ -68,44 +68,34 @@ public class SampleMvuView : ComponentBase
                             .Text("lambda binding sample")
                             .FontSize(24),
                         new TextBlock()
-                            .Text(() => $"Counter: {(Counter == 0 ? "zero" : Counter)}"),
+                            .Text(() => $"Counter: {(Counter.Value == 0 ? "zero" : Counter.Value)}"),
                         new NumericUpDown()
-                            .Value(() => Counter, v => Counter = v)
+                            .Value(Counter.Get, Counter.Set)
 
                     )
             );
 
-    private decimal? Counter { get; set; } = 0;
+    private readonly Signal<decimal?> Counter = new(0);
 
-    private string _myNotifiedProperty1 = "Click me";
-
+    private readonly Signal<string> _myNotifiedProperty1 = new("Click me");
     public string MyNotifiedProperty
     {
-        get => _myNotifiedProperty1;
-        set
-        {
-            if (value != _myNotifiedProperty1)
-            {
-                _myNotifiedProperty1 = value;
-                OnPropertyChanged();
-            }
-        }
+        get => _myNotifiedProperty1.Get();
+        set => _myNotifiedProperty1.Set(value);
     }
 
-    public Brush BorderColor { get; set; } = Colors.Red.ToBrush();
-    public string MyProperty { get; set; } = "Hello MVU";
+    public readonly Signal<Brush> BorderColor = new(Colors.Red.ToBrush());
+    public readonly Signal<string> MyProperty = new("Hello MVU");
 
-    public SeparatedViewState State { get; set; } = new();
+    public readonly SeparatedViewState State = new();
 
-    public string MvuComponentParam { get; set; } = "Hello nested component";
+    public readonly Signal<string> MvuComponentParam = new("Hello nested component");
 
     private void OnButtonClick(RoutedEventArgs args)
     {
         var tb = this.FindControl<TextBlock>("NamedTextBlock");
 
-        MyProperty = "Button was clicked!";
-        StateHasChanged();
-
+        MyProperty.Set("Button was clicked!");
         MyNotifiedProperty = "You clicked me!";
     }
     private void OnButton2Click(RoutedEventArgs obj)
@@ -115,8 +105,7 @@ public class SampleMvuView : ComponentBase
 
     private void OnButton3Click(RoutedEventArgs obj)
     {
-        MvuComponentParam = "I changed from external view!";
-        BorderColor = Colors.Green.ToBrush();
-        StateHasChanged();
+        MvuComponentParam.Set("I changed from external view!");
+        BorderColor.Set(Colors.Green.ToBrush());
     }
 }

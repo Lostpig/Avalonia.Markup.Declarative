@@ -69,6 +69,10 @@ public static T DockPanel_Dock<T>(this T control, Func<Avalonia.Controls.Dock> f
 public static T DockPanel_Dock<T>(this T control, ISignal<Avalonia.Controls.Dock> signal, Action<Avalonia.Controls.Dock>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.DockPanel.DockProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T DockPanel_Dock<T>(this T control, Avalonia.Controls.Dock value, Action<Avalonia.Controls.Dock>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.DockPanel.DockProperty!, onChanged);
+
 
 
 //================= Styles ======================//

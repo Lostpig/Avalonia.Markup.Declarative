@@ -1,6 +1,6 @@
-﻿using AvaloniaMarkupSample;
+﻿using Mearii.Mvu;
 
-public class MyCustomControl : ViewBase
+public class MyCustomControl : MvuComponent
 {
     #region Background Styled Avalonia Property
     public SolidColorBrush? Background

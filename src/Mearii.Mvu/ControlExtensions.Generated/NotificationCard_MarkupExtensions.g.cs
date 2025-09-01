@@ -54,6 +54,10 @@ public static T NotificationCard_CloseOnClick<T>(this T control, Func<System.Boo
 public static T NotificationCard_CloseOnClick<T>(this T control, ISignal<System.Boolean> signal, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.Button 
    => control._set(signal, Avalonia.Controls.Notifications.NotificationCard.CloseOnClickProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T NotificationCard_CloseOnClick<T>(this T control, System.Boolean value, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.Button 
+   => control._set(() => value, Avalonia.Controls.Notifications.NotificationCard.CloseOnClickProperty!, onChanged);
+
 
 
 //================= Events ======================//

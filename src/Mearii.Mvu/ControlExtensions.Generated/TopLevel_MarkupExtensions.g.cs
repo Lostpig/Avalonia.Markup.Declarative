@@ -69,6 +69,10 @@ public static T TopLevel_SystemBarColor<T>(this T control, Func<Avalonia.Media.S
 public static T TopLevel_SystemBarColor<T>(this T control, ISignal<Avalonia.Media.SolidColorBrush> signal, Action<Avalonia.Media.SolidColorBrush>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.TopLevel.SystemBarColorProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T TopLevel_SystemBarColor<T>(this T control, Avalonia.Media.SolidColorBrush value, Action<Avalonia.Media.SolidColorBrush>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.TopLevel.SystemBarColorProperty!, onChanged);
+
 
  // AutoSafeAreaPadding
 
@@ -79,6 +83,10 @@ public static T TopLevel_AutoSafeAreaPadding<T>(this T control, Func<System.Bool
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T TopLevel_AutoSafeAreaPadding<T>(this T control, ISignal<System.Boolean> signal, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.TopLevel.AutoSafeAreaPaddingProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T TopLevel_AutoSafeAreaPadding<T>(this T control, System.Boolean value, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.TopLevel.AutoSafeAreaPaddingProperty!, onChanged);
 
 
 

@@ -54,6 +54,10 @@ public static T DataValidationErrors_Errors<T>(this T control, Func<System.Colle
 public static T DataValidationErrors_Errors<T>(this T control, ISignal<System.Collections.Generic.IEnumerable<System.Object>> signal, Action<System.Collections.Generic.IEnumerable<System.Object>>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.DataValidationErrors.ErrorsProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T DataValidationErrors_Errors<T>(this T control, System.Collections.Generic.IEnumerable<System.Object> value, Action<System.Collections.Generic.IEnumerable<System.Object>>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.DataValidationErrors.ErrorsProperty!, onChanged);
+
 
  // ErrorConverter
 
@@ -64,6 +68,10 @@ public static T DataValidationErrors_ErrorConverter<T>(this T control, Func<Syst
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T DataValidationErrors_ErrorConverter<T>(this T control, ISignal<System.Func<System.Object,System.Object>> signal, Action<System.Func<System.Object,System.Object>>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.DataValidationErrors.ErrorConverterProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T DataValidationErrors_ErrorConverter<T>(this T control, System.Func<System.Object,System.Object> value, Action<System.Func<System.Object,System.Object>>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.DataValidationErrors.ErrorConverterProperty!, onChanged);
 
 
 

@@ -1,4 +1,5 @@
-﻿using Avalonia.Platform;
+﻿using Mearii.Mvu;
+using Avalonia.Platform;
 using AvaloniaMarkupSample;
 
 var lifetime = new ClassicDesktopStyleApplicationLifetime { Args = args, ShutdownMode = ShutdownMode.OnLastWindowClose };
@@ -27,7 +28,7 @@ var menu = new NativeMenu().Items(
 );
 
 appBuilder.Instance?.TrayIcon_Icons(
-    [
+    () => [
         new TrayIcon()
             .Icon(new WindowIcon(icon))
             .Menu(menu)
@@ -37,7 +38,7 @@ appBuilder.Instance?.TrayIcon_Icons(
 lifetime.MainWindow = new Window()
     .Title("Avalonia markup samples")
     .Content(new MainView())
-    .NativeMenu_Menu(menu);
+    .NativeMenu_Menu(() => menu);
 
 void OnOpenClick(EventArgs e)
 {

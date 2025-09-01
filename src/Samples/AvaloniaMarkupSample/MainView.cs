@@ -3,10 +3,11 @@ using Avalonia.Styling;
 using AvaloniaMarkupSample.CommonSamples;
 using AvaloniaMarkupSample.MvuSample;
 using AvaloniaMarkupSample.MvvmSample;
+using Mearii.Mvu;
 
 namespace AvaloniaMarkupSample;
 
-public class MainView : ViewBase
+public class MainView : MvuComponent
 {
     protected override StyleGroup? BuildStyles() =>
     [
@@ -30,8 +31,7 @@ public class MainView : ViewBase
                                     .Padding(12)
                                     .FontSize(30)
                                     .HorizontalAlignment(HorizontalAlignment.Center)
-                                    .Text("Hello Hot Reload!")
-                                    .Foreground("SystemAccentColor".GetDynamicResource()),
+                                    .Text("Hello Hot Reload!"),
 
                                 new Button()
                                     .Name("HotReloadButton", Scope)

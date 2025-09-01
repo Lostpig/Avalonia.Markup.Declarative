@@ -11,19 +11,36 @@ using System.Reflection;
 
 namespace Mearii.Mvu;
 
+public abstract class MvuComponent<TViewModel> : MvuComponent
+{
+    protected TViewModel? _viewModel;
+    public virtual TViewModel? ViewModel
+    {
+        get => _viewModel;
+        set => _viewModel = value;
+    }
+
+    protected MvuComponent(TViewModel viewModel)
+        : base(true)
+    {
+        ViewModel = viewModel;
+        OnCreated();
+        Initialize();
+    }
+
+    protected abstract object Build(TViewModel vm);
+    protected override object Build() => Build(ViewModel);
+}
+
 public abstract class MvuComponent : Decorator, IReloadable, IDeclarativeComponent
 {
-    internal readonly List<ReactiveState> _states = [];
-    internal readonly List<ViewPropertyComputedState> _computedStates = [];
+    internal readonly List<ViewSignalComputedState> _signalStates = [];
+    internal readonly List<ViewPropertyComputedState> _propertyStates = [];
     private INameScope? _nameScope;
     /// <summary>
     /// Current NameScope of this view
     /// </summary>
     protected INameScope Scope => _nameScope ??= new NameScope();
-    protected static Signal<T> CreateSignal<T>(T initValue)
-    {
-        return new Signal<T>(initValue);
-    }
 
     /// <summary>
     /// Creates a new instance of the control using the component factory. Injects services into the control if needed.
@@ -44,10 +61,17 @@ public abstract class MvuComponent : Decorator, IReloadable, IDeclarativeCompone
     protected abstract object Build();
     protected virtual StyleGroup? BuildStyles() => null;
 
-    protected MvuComponent()
+    protected MvuComponent(bool deferredLoading)
     {
-        OnCreated();
-        Initialize();
+        if (!deferredLoading)
+        {
+            OnCreated();
+            Initialize();
+        }
+    }
+    protected MvuComponent(): this(false)
+    {
+
     }
 
     /// <summary>
@@ -57,11 +81,11 @@ public abstract class MvuComponent : Decorator, IReloadable, IDeclarativeCompone
     protected virtual void OnCreated()
     {
         InjectServices();
-        InitializeComputedStates();
+        InitializePropertyStates();
     }
     protected virtual void OnAfterInitialized() { }
 
-    private void Initialize()
+    protected void Initialize()
     {
         try
         {
@@ -94,17 +118,17 @@ public abstract class MvuComponent : Decorator, IReloadable, IDeclarativeCompone
             throw new ComponentBuildingException($"Build error in {GetType().Name} : {ex.Message}", ex);
         }
     }
-    internal void AddState(ReactiveState state)
+    internal void AddState(ViewSignalComputedState state)
     {
         ArgumentNullException.ThrowIfNull(state);
-        if (!_states.Contains(state))
-            _states.Add(state);
+        if (!_signalStates.Contains(state))
+            _signalStates.Add(state);
     }
     internal void AddComputedState(ViewPropertyComputedState state)
     {
         ArgumentNullException.ThrowIfNull(state);
-        if (!_computedStates.Contains(state))
-            _computedStates.Add(state);
+        if (!_propertyStates.Contains(state))
+            _propertyStates.Add(state);
     }
 
     [RequiresUnreferencedCode("Method InjectServices is using reflection to iterate through Type hierarchy. That's can not be analyzed statically.")]
@@ -147,11 +171,11 @@ public abstract class MvuComponent : Decorator, IReloadable, IDeclarativeCompone
         }
     }
 
-    private void InitializeComputedStates()
+    private void InitializePropertyStates()
     {
-        PropertyChanged += OnSelfPropertyChanged;
+        PropertyChanged += OnBasePropertyChanged;
     }
-    private void OnSelfPropertyChanged(object? sender, AvaloniaPropertyChangedEventArgs e)
+    private void OnBasePropertyChanged(object? sender, AvaloniaPropertyChangedEventArgs e)
     {
         if (Dispatcher.UIThread.CheckAccess())
         {
@@ -172,7 +196,7 @@ public abstract class MvuComponent : Decorator, IReloadable, IDeclarativeCompone
         _isUpdatingState = true;
         try
         {
-            foreach (var computedState in _computedStates)
+            foreach (var computedState in _propertyStates)
                 computedState.OnPropertyChanged();
         }
         finally
@@ -194,11 +218,11 @@ public abstract class MvuComponent : Decorator, IReloadable, IDeclarativeCompone
     {
         Dispatcher.UIThread.InvokeAsync(() =>
         {
-            foreach (var state in _states)
+            foreach (var state in _signalStates)
             {
                 state.Dispose();
             }
-            _states.Clear();
+            _signalStates.Clear();
 
             OnBeforeReload();
             Child = null;

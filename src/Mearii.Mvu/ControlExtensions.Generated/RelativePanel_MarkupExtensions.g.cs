@@ -22,6 +22,10 @@ public static T RelativePanel_Above<T>(this T control, Func<System.Object> func,
 public static T RelativePanel_Above<T>(this T control, ISignal<System.Object> signal, Action<System.Object>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.RelativePanel.AboveProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T RelativePanel_Above<T>(this T control, System.Object value, Action<System.Object>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.RelativePanel.AboveProperty!, onChanged);
+
 
  // AlignBottomWithPanel
 
@@ -32,6 +36,10 @@ public static T RelativePanel_AlignBottomWithPanel<T>(this T control, Func<Syste
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T RelativePanel_AlignBottomWithPanel<T>(this T control, ISignal<System.Boolean> signal, Action<System.Boolean>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.RelativePanel.AlignBottomWithPanelProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T RelativePanel_AlignBottomWithPanel<T>(this T control, System.Boolean value, Action<System.Boolean>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.RelativePanel.AlignBottomWithPanelProperty!, onChanged);
 
 
  // AlignBottomWith
@@ -44,6 +52,10 @@ public static T RelativePanel_AlignBottomWith<T>(this T control, Func<System.Obj
 public static T RelativePanel_AlignBottomWith<T>(this T control, ISignal<System.Object> signal, Action<System.Object>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.RelativePanel.AlignBottomWithProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T RelativePanel_AlignBottomWith<T>(this T control, System.Object value, Action<System.Object>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.RelativePanel.AlignBottomWithProperty!, onChanged);
+
 
  // AlignHorizontalCenterWithPanel
 
@@ -54,6 +66,10 @@ public static T RelativePanel_AlignHorizontalCenterWithPanel<T>(this T control, 
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T RelativePanel_AlignHorizontalCenterWithPanel<T>(this T control, ISignal<System.Boolean> signal, Action<System.Boolean>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.RelativePanel.AlignHorizontalCenterWithPanelProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T RelativePanel_AlignHorizontalCenterWithPanel<T>(this T control, System.Boolean value, Action<System.Boolean>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.RelativePanel.AlignHorizontalCenterWithPanelProperty!, onChanged);
 
 
  // AlignHorizontalCenterWith
@@ -66,6 +82,10 @@ public static T RelativePanel_AlignHorizontalCenterWith<T>(this T control, Func<
 public static T RelativePanel_AlignHorizontalCenterWith<T>(this T control, ISignal<System.Object> signal, Action<System.Object>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.RelativePanel.AlignHorizontalCenterWithProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T RelativePanel_AlignHorizontalCenterWith<T>(this T control, System.Object value, Action<System.Object>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.RelativePanel.AlignHorizontalCenterWithProperty!, onChanged);
+
 
  // AlignLeftWithPanel
 
@@ -76,6 +96,10 @@ public static T RelativePanel_AlignLeftWithPanel<T>(this T control, Func<System.
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T RelativePanel_AlignLeftWithPanel<T>(this T control, ISignal<System.Boolean> signal, Action<System.Boolean>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.RelativePanel.AlignLeftWithPanelProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T RelativePanel_AlignLeftWithPanel<T>(this T control, System.Boolean value, Action<System.Boolean>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.RelativePanel.AlignLeftWithPanelProperty!, onChanged);
 
 
  // AlignLeftWith
@@ -88,6 +112,10 @@ public static T RelativePanel_AlignLeftWith<T>(this T control, Func<System.Objec
 public static T RelativePanel_AlignLeftWith<T>(this T control, ISignal<System.Object> signal, Action<System.Object>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.RelativePanel.AlignLeftWithProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T RelativePanel_AlignLeftWith<T>(this T control, System.Object value, Action<System.Object>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.RelativePanel.AlignLeftWithProperty!, onChanged);
+
 
  // AlignRightWithPanel
 
@@ -98,6 +126,10 @@ public static T RelativePanel_AlignRightWithPanel<T>(this T control, Func<System
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T RelativePanel_AlignRightWithPanel<T>(this T control, ISignal<System.Boolean> signal, Action<System.Boolean>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.RelativePanel.AlignRightWithPanelProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T RelativePanel_AlignRightWithPanel<T>(this T control, System.Boolean value, Action<System.Boolean>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.RelativePanel.AlignRightWithPanelProperty!, onChanged);
 
 
  // AlignRightWith
@@ -110,6 +142,10 @@ public static T RelativePanel_AlignRightWith<T>(this T control, Func<System.Obje
 public static T RelativePanel_AlignRightWith<T>(this T control, ISignal<System.Object> signal, Action<System.Object>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.RelativePanel.AlignRightWithProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T RelativePanel_AlignRightWith<T>(this T control, System.Object value, Action<System.Object>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.RelativePanel.AlignRightWithProperty!, onChanged);
+
 
  // AlignTopWithPanel
 
@@ -120,6 +156,10 @@ public static T RelativePanel_AlignTopWithPanel<T>(this T control, Func<System.B
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T RelativePanel_AlignTopWithPanel<T>(this T control, ISignal<System.Boolean> signal, Action<System.Boolean>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.RelativePanel.AlignTopWithPanelProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T RelativePanel_AlignTopWithPanel<T>(this T control, System.Boolean value, Action<System.Boolean>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.RelativePanel.AlignTopWithPanelProperty!, onChanged);
 
 
  // AlignTopWith
@@ -132,6 +172,10 @@ public static T RelativePanel_AlignTopWith<T>(this T control, Func<System.Object
 public static T RelativePanel_AlignTopWith<T>(this T control, ISignal<System.Object> signal, Action<System.Object>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.RelativePanel.AlignTopWithProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T RelativePanel_AlignTopWith<T>(this T control, System.Object value, Action<System.Object>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.RelativePanel.AlignTopWithProperty!, onChanged);
+
 
  // AlignVerticalCenterWithPanel
 
@@ -142,6 +186,10 @@ public static T RelativePanel_AlignVerticalCenterWithPanel<T>(this T control, Fu
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T RelativePanel_AlignVerticalCenterWithPanel<T>(this T control, ISignal<System.Boolean> signal, Action<System.Boolean>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.RelativePanel.AlignVerticalCenterWithPanelProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T RelativePanel_AlignVerticalCenterWithPanel<T>(this T control, System.Boolean value, Action<System.Boolean>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.RelativePanel.AlignVerticalCenterWithPanelProperty!, onChanged);
 
 
  // AlignVerticalCenterWith
@@ -154,6 +202,10 @@ public static T RelativePanel_AlignVerticalCenterWith<T>(this T control, Func<Sy
 public static T RelativePanel_AlignVerticalCenterWith<T>(this T control, ISignal<System.Object> signal, Action<System.Object>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.RelativePanel.AlignVerticalCenterWithProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T RelativePanel_AlignVerticalCenterWith<T>(this T control, System.Object value, Action<System.Object>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.RelativePanel.AlignVerticalCenterWithProperty!, onChanged);
+
 
  // Below
 
@@ -164,6 +216,10 @@ public static T RelativePanel_Below<T>(this T control, Func<System.Object> func,
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T RelativePanel_Below<T>(this T control, ISignal<System.Object> signal, Action<System.Object>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.RelativePanel.BelowProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T RelativePanel_Below<T>(this T control, System.Object value, Action<System.Object>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.RelativePanel.BelowProperty!, onChanged);
 
 
  // LeftOf
@@ -176,6 +232,10 @@ public static T RelativePanel_LeftOf<T>(this T control, Func<System.Object> func
 public static T RelativePanel_LeftOf<T>(this T control, ISignal<System.Object> signal, Action<System.Object>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.RelativePanel.LeftOfProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T RelativePanel_LeftOf<T>(this T control, System.Object value, Action<System.Object>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.RelativePanel.LeftOfProperty!, onChanged);
+
 
  // RightOf
 
@@ -186,6 +246,10 @@ public static T RelativePanel_RightOf<T>(this T control, Func<System.Object> fun
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T RelativePanel_RightOf<T>(this T control, ISignal<System.Object> signal, Action<System.Object>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.RelativePanel.RightOfProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T RelativePanel_RightOf<T>(this T control, System.Object value, Action<System.Object>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.RelativePanel.RightOfProperty!, onChanged);
 
 
 

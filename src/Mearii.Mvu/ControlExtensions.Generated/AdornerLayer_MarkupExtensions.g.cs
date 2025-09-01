@@ -39,6 +39,10 @@ public static T AdornerLayer_AdornedElement<T>(this T control, Func<Avalonia.Vis
 public static T AdornerLayer_AdornedElement<T>(this T control, ISignal<Avalonia.Visual> signal, Action<Avalonia.Visual>? onChanged = null) where T : Avalonia.Visual 
    => control._set(signal, Avalonia.Controls.Primitives.AdornerLayer.AdornedElementProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T AdornerLayer_AdornedElement<T>(this T control, Avalonia.Visual value, Action<Avalonia.Visual>? onChanged = null) where T : Avalonia.Visual 
+   => control._set(() => value, Avalonia.Controls.Primitives.AdornerLayer.AdornedElementProperty!, onChanged);
+
 
  // IsClipEnabled
 
@@ -50,6 +54,10 @@ public static T AdornerLayer_IsClipEnabled<T>(this T control, Func<System.Boolea
 public static T AdornerLayer_IsClipEnabled<T>(this T control, ISignal<System.Boolean> signal, Action<System.Boolean>? onChanged = null) where T : Avalonia.Visual 
    => control._set(signal, Avalonia.Controls.Primitives.AdornerLayer.IsClipEnabledProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T AdornerLayer_IsClipEnabled<T>(this T control, System.Boolean value, Action<System.Boolean>? onChanged = null) where T : Avalonia.Visual 
+   => control._set(() => value, Avalonia.Controls.Primitives.AdornerLayer.IsClipEnabledProperty!, onChanged);
+
 
  // Adorner
 
@@ -60,6 +68,10 @@ public static T AdornerLayer_Adorner<T>(this T control, Func<Avalonia.Controls.C
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T AdornerLayer_Adorner<T>(this T control, ISignal<Avalonia.Controls.Control> signal, Action<Avalonia.Controls.Control>? onChanged = null) where T : Avalonia.Visual 
    => control._set(signal, Avalonia.Controls.Primitives.AdornerLayer.AdornerProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T AdornerLayer_Adorner<T>(this T control, Avalonia.Controls.Control value, Action<Avalonia.Controls.Control>? onChanged = null) where T : Avalonia.Visual 
+   => control._set(() => value, Avalonia.Controls.Primitives.AdornerLayer.AdornerProperty!, onChanged);
 
 
 

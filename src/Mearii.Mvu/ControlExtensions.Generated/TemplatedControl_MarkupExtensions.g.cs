@@ -261,6 +261,10 @@ public static T TemplatedControl_IsTemplateFocusTarget<T>(this T control, Func<S
 public static T TemplatedControl_IsTemplateFocusTarget<T>(this T control, ISignal<System.Boolean> signal, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.Primitives.TemplatedControl.IsTemplateFocusTargetProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T TemplatedControl_IsTemplateFocusTarget<T>(this T control, System.Boolean value, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.Primitives.TemplatedControl.IsTemplateFocusTargetProperty!, onChanged);
+
 
 
 //================= Events ======================//

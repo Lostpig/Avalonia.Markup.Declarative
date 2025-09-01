@@ -22,6 +22,10 @@ public static T Canvas_Left<T>(this T control, Func<System.Double> func, Action<
 public static T Canvas_Left<T>(this T control, ISignal<System.Double> signal, Action<System.Double>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.Canvas.LeftProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T Canvas_Left<T>(this T control, System.Double value, Action<System.Double>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.Canvas.LeftProperty!, onChanged);
+
 
  // Top
 
@@ -32,6 +36,10 @@ public static T Canvas_Top<T>(this T control, Func<System.Double> func, Action<S
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T Canvas_Top<T>(this T control, ISignal<System.Double> signal, Action<System.Double>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.Canvas.TopProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T Canvas_Top<T>(this T control, System.Double value, Action<System.Double>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.Canvas.TopProperty!, onChanged);
 
 
  // Right
@@ -44,6 +52,10 @@ public static T Canvas_Right<T>(this T control, Func<System.Double> func, Action
 public static T Canvas_Right<T>(this T control, ISignal<System.Double> signal, Action<System.Double>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.Canvas.RightProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T Canvas_Right<T>(this T control, System.Double value, Action<System.Double>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.Canvas.RightProperty!, onChanged);
+
 
  // Bottom
 
@@ -54,6 +66,10 @@ public static T Canvas_Bottom<T>(this T control, Func<System.Double> func, Actio
 /*AttachedPropertyBindFromSignalSetterGenerator*/
 public static T Canvas_Bottom<T>(this T control, ISignal<System.Double> signal, Action<System.Double>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.Canvas.BottomProperty!, onChanged);
+
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T Canvas_Bottom<T>(this T control, System.Double value, Action<System.Double>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.Canvas.BottomProperty!, onChanged);
 
 
 

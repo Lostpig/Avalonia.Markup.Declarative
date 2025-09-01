@@ -22,6 +22,10 @@ public static T NativeMenuBar_EnableMenuItemClickForwarding<T>(this T control, F
 public static T NativeMenuBar_EnableMenuItemClickForwarding<T>(this T control, ISignal<System.Boolean> signal, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.MenuItem 
    => control._set(signal, Avalonia.Controls.NativeMenuBar.EnableMenuItemClickForwardingProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T NativeMenuBar_EnableMenuItemClickForwarding<T>(this T control, System.Boolean value, Action<System.Boolean>? onChanged = null) where T : Avalonia.Controls.MenuItem 
+   => control._set(() => value, Avalonia.Controls.NativeMenuBar.EnableMenuItemClickForwardingProperty!, onChanged);
+
 
 
 }

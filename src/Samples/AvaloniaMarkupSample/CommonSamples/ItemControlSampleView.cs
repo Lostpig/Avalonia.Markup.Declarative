@@ -1,19 +1,21 @@
-﻿namespace AvaloniaMarkupSample.CommonSamples;
+﻿using Mearii.Mvu;
 
-public class ItemControlSampleView : ComponentBase
+namespace AvaloniaMarkupSample.CommonSamples;
+
+public class ItemControlSampleView : MvuComponent
 {
     protected override object Build() =>
         new StackPanel()
             .Children(
                 new ListBox()
                     .HorizontalAlignment(HorizontalAlignment.Center)
-                    .ItemsSource(() => Items)
+                    .ItemsSource(() => Items.Value)
                     .ItemTemplate<string>(item =>
-                        //needed to keep current view context for lambda bindings
-                        new FuncComponent<string>(item, s =>
-                            new TextBlock()
-                                .Background(Brushes.Beige)
-                                .Text(() => s))
+                         new TextBlock()
+                         {
+                             Background = Brushes.Beige,
+                            Text = item
+                         }
                     )
                     .SelectedItem(() => SelectedItem, v => SelectedItem = (string)v),
 
@@ -27,24 +29,19 @@ public class ItemControlSampleView : ComponentBase
                 //    .Text(Items2.Count.ToString())
             );
 
-    private string _selectedItem = "one";
+    private readonly Signal<string> _selectedItem = new("one");
     public string SelectedItem
     {
-        get => _selectedItem;
-        set
-        {
-            _selectedItem = value;
-            StateHasChanged();
-            OnPropertyChanged();
-        }
+        get => _selectedItem.Get();
+        set => _selectedItem.Set(value);
     }
 
     public List<string> Items2 { get; set; } = null!;
 
-    public List<string> Items { get; set; } =
+    public CollectionSignal<string> Items  = new(
     [
         "one",
         "two",
         "four"
-    ];
+    ]);
 }

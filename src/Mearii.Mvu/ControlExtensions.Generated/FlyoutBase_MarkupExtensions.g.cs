@@ -22,6 +22,10 @@ public static T FlyoutBase_AttachedFlyout<T>(this T control, Func<Avalonia.Contr
 public static T FlyoutBase_AttachedFlyout<T>(this T control, ISignal<Avalonia.Controls.Primitives.FlyoutBase> signal, Action<Avalonia.Controls.Primitives.FlyoutBase>? onChanged = null) where T : Avalonia.Controls.Control 
    => control._set(signal, Avalonia.Controls.Primitives.FlyoutBase.AttachedFlyoutProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T FlyoutBase_AttachedFlyout<T>(this T control, Avalonia.Controls.Primitives.FlyoutBase value, Action<Avalonia.Controls.Primitives.FlyoutBase>? onChanged = null) where T : Avalonia.Controls.Control 
+   => control._set(() => value, Avalonia.Controls.Primitives.FlyoutBase.AttachedFlyoutProperty!, onChanged);
+
 
 
 //================= Events ======================//

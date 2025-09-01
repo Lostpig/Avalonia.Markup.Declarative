@@ -22,6 +22,10 @@ public static T NativeMenu_Menu<T>(this T control, Func<Avalonia.Controls.Native
 public static T NativeMenu_Menu<T>(this T control, ISignal<Avalonia.Controls.NativeMenu> signal, Action<Avalonia.Controls.NativeMenu>? onChanged = null) where T : Avalonia.AvaloniaObject 
    => control._set(signal, Avalonia.Controls.NativeMenu.MenuProperty!, onChanged);
 
+/*AttachedPropertyMagicalSetterGenerator*/
+public static T NativeMenu_Menu<T>(this T control, Avalonia.Controls.NativeMenu value, Action<Avalonia.Controls.NativeMenu>? onChanged = null) where T : Avalonia.AvaloniaObject 
+   => control._set(() => value, Avalonia.Controls.NativeMenu.MenuProperty!, onChanged);
+
 
 
 //================= Events ======================//

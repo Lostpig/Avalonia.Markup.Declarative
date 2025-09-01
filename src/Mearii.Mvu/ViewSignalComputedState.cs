@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Mearii.Mvu;
 
-internal class ReactiveState<TControl, TValue> : ReactiveState, IObserver<TValue> where TControl : AvaloniaObject
+internal class ViewSignalComputedState<TControl, TValue> : ViewSignalComputedState, IObserver<TValue> where TControl : AvaloniaObject
 {
     protected readonly IObservable<TValue>? _obs;
     protected readonly TControl _control;
@@ -17,16 +17,16 @@ internal class ReactiveState<TControl, TValue> : ReactiveState, IObserver<TValue
     public TValue Value => GetterFunc();
     private TValue? _cacheValue;
 
-    internal ReactiveState(TControl control, Func<TValue> getter, Action<TControl, TValue> setter, Action<TValue>? changeHandler)
+    internal ViewSignalComputedState(TControl control, Func<TValue> getter, Action<TControl, TValue> setter, Action<TValue>? changeHandler)
         : this(control, getter, setter, null, changeHandler) { }
-    internal ReactiveState(TControl control, Func<TValue> getter, AvaloniaProperty<TValue> avaloniaProperty, Action<TValue>? changeHandler)
+    internal ViewSignalComputedState(TControl control, Func<TValue> getter, AvaloniaProperty<TValue> avaloniaProperty, Action<TValue>? changeHandler)
         : this(control, getter, null, avaloniaProperty, changeHandler) { }
-    internal ReactiveState(TControl control, ISignal<TValue> signal, AvaloniaProperty<TValue> avaloniaProperty, Action<TValue>? changeHandler)
+    internal ViewSignalComputedState(TControl control, ISignal<TValue> signal, AvaloniaProperty<TValue> avaloniaProperty, Action<TValue>? changeHandler)
         : this(control, () => signal.Value, null, avaloniaProperty, changeHandler) { }
-    internal ReactiveState(TControl control, ISignal<TValue> signal, Action<TControl, TValue> setter, Action<TValue>? changeHandler)
+    internal ViewSignalComputedState(TControl control, ISignal<TValue> signal, Action<TControl, TValue> setter, Action<TValue>? changeHandler)
     : this(control, () => signal.Value, setter, null, changeHandler) { }
 
-    private ReactiveState(
+    private ViewSignalComputedState(
         TControl control, 
         Func<TValue> getter,
         Action<TControl, TValue>? setter,
@@ -100,7 +100,7 @@ internal class ReactiveState<TControl, TValue> : ReactiveState, IObserver<TValue
     #endregion
 }
 
-internal abstract class ReactiveState : IDisposable
+internal abstract class ViewSignalComputedState : IDisposable
 {
     protected readonly List<IDisposable> _subscriptions = [];
     protected void InitializeDependencies(ICollection<Signal> dependencies)
